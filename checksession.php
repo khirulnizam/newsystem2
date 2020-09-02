@@ -1,4 +1,5 @@
 <?php
+//checksession.php
 session_start();
 if (isset($_SESSION['sessionid']) &&
 	$_SESSION['accesslevel']=='admin'){

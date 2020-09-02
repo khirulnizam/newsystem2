@@ -1,24 +1,5 @@
 <?php
-include "checksession.php";
-//insertactivity.php
-include ("header.template.php");
-?>
-
-Insert Record<br>
-<form method="post" action="">
-	Activity* <input name="activityname" type="text"
-	class="form-control">
-	Time* <input type="time" name="time"
-	class="form-control">
-	Date* <input type="date" name="date"
-	class="form-control">
-	Speaker <input type="text" name="speaker"
-	class="form-control">
-	<button type="submit"
-	class="btn btn-success">Save Record</button>
-</form>
-
-<?php
+//updateactivity.php
 if(isset($_POST['activityname']) &&
 	isset($_POST['time']) && isset($_POST['date'])){
 
@@ -26,13 +7,14 @@ if(isset($_POST['activityname']) &&
 	include "dbconnect.php";
 	
 	//fetch data
+	$id=$_POST['id'];
 	$activityname=$_POST['activityname'];
 	$date=$_POST['date'];
 	$time=$_POST['time'];
 	$speaker=$_POST['speaker'];
 
 	//sql insert
-	$sql="INSERT INTO activities
+	$sql="UPDATE INTO activities
 		(activityname, date, time,speaker,userid)
 		VALUES('$activityname','$date',
 		'$time','$speaker',
@@ -47,6 +29,3 @@ if(isset($_POST['activityname']) &&
 		echo "Cannot save record";
 	}
 }//end isset
-
-include ("footer.template.php");
-?>
