@@ -32,7 +32,8 @@ if(mysqli_num_rows($rs)==0){
 				$_SESSION['accesslevel']=='admin'){
 				echo "<a href='editactivity.php?id=$id'>
 				<i class='fa fa-edit'></i></a> ".
-				"<a href='deleteactivity.php?id=$id'>
+				"<a href='#'
+				onclick='confirmdelete($id)'>
 				<i class='fa fa-trash danger'  style='color:red'></i></a> ";
 			}//end display for admin
 			echo $rec['id'];
@@ -44,7 +45,17 @@ if(mysqli_num_rows($rs)==0){
 			echo "</tr>";
 		}
 	?>
+
 </table>
+<script>
+	function confirmdelete(id){
+		var answer=confirm("Are u sure to delete?");
+		if (answer==true){
+			//redirect
+			window.location.href = "deleteactivity.php?id="+id;
+		}
+	}
+</script>
 <?php
 }
 include "footer.template.php";
