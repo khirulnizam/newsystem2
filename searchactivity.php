@@ -2,7 +2,11 @@
 session_start();//mesti di atas
 include "header.template.php";
 //searchactivity.php
-$key=$_GET['katakunci'];
+if (isset($_GET['katakunci'])){
+	$key=$_GET['katakunci'];
+}else{
+	$key="";
+}
 $sql="SELECT id,activityname,date,time,speaker
 	FROM activities
 	WHERE activityname LIKE '%$key%' ";

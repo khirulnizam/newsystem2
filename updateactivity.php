@@ -14,18 +14,22 @@ if(isset($_POST['activityname']) &&
 	$speaker=$_POST['speaker'];
 
 	//sql insert
-	$sql="UPDATE INTO activities
-		(activityname, date, time,speaker,userid)
-		VALUES('$activityname','$date',
-		'$time','$speaker',
-		'".$_SESSION['userid']."')";
+	$sql="UPDATE activities
+		SET
+		activityname='$activityname', 
+		date='$date', 
+		time='$time',
+		speaker='$speaker'
+		WHERE id='$id'";
 		//data dari borang html
-		echo $sql;
+		//echo $sql;
 
 	$rs=mysqli_query($conn,$sql);
 	if($rs==true){
-		echo "Record saved";
+		header ("Location: searchactivity.php?msg=Record update");
+		echo "Record update";
 	}else{
+		//header ("Location: searchactivity.php?msg=Cannot save Record ");
 		echo "Cannot save record";
 	}
 }//end isset

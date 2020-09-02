@@ -38,7 +38,7 @@ if(isset($_POST['activityname']) &&
 		'$time','$speaker',
 		'".$_SESSION['userid']."')";
 		//data dari borang html
-		echo $sql;
+		//echo $sql;
 
 	$rs=mysqli_query($conn,$sql);
 	if($rs==true){
