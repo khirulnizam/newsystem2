@@ -8,7 +8,7 @@ include "header.template.php";
 
 $target_dir = "adminimage/";
 //rename file image
-$newfilename=date('d-m-Y')."-".basename($_FILES["fileToUpload"]["name"]);
+$newfilename=date('d-m-Y')."-".time()."-".basename($_FILES["fileToUpload"]["name"]);
 $target_file = $target_dir .$newfilename;
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -50,7 +50,8 @@ if ($uploadOk == 0) {
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-    $_SESSION['adminimage']=$newfilename;
+    $_SESSION['imagefile']=$newfilename;
+
   } else {
     echo "Sorry, there was an error uploading your file.";
   }

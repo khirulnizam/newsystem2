@@ -5,7 +5,7 @@ include "dbconnect.php";
 $email=$_POST['email'];
 $password=md5($_POST['katalaluan']);
 
-$sql="SELECT id,email,fullname,accesslevel FROM users 
+$sql="SELECT id,email,fullname,accesslevel, imagefile FROM users 
 	WHERE email='$email' 
 	AND password='$password'";
 $rs=mysqli_query($conn,$sql);
