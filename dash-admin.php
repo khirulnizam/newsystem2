@@ -8,6 +8,8 @@ include ("header.template.php");
 <a href="insertactivity.php">Insert record</a><br>
 <a href="updateactivity.php">Update/Delete record activity</a>
 <br>
+<a href="editadmin.php">Edit admin profile</a>
+<br>
 <a href="logout.php">Logout</a><br>
 
 <?php

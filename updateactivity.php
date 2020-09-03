@@ -14,7 +14,7 @@ if(isset($_POST['activityname']) &&
 	$speaker=$_POST['speaker'];
 
 	//sql insert
-	$sql="UPDATE activities
+	$sql="UPDATE activity
 		SET
 		activityname='$activityname', 
 		date='$date', 
@@ -25,6 +25,9 @@ if(isset($_POST['activityname']) &&
 		//echo $sql;
 
 	$rs=mysqli_query($conn,$sql);
+	if (mysqli_error($rs)==true){
+		echo mysqli_error($rs);
+	}//sql error
 	if($rs==true){
 		header ("Location: searchactivity.php?msg=Record update");
 		echo "Record update";
