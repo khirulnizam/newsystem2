@@ -18,6 +18,8 @@ if(mysqli_num_rows($rs)==1){//jumpa user
 	$_SESSION['fullname']=$record['fullname'];
 	$_SESSION['email']=$record['email'];
 	$_SESSION['accesslevel']=$record['accesslevel'];
+	//admin image file
+	$_SESSION['imagefile']=$record['imagefile'];
 
 	//redirect dashboard
 	if($record['accesslevel']=='admin'){

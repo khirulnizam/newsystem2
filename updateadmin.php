@@ -50,6 +50,7 @@ if ($uploadOk == 0) {
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+    $_SESSION['adminimage']=$newfilename;
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
@@ -80,7 +81,7 @@ if ($uploadOk == 0) {
 	if($rs==true){
 		//header ("Location: dash-admin.php?msg=Record update");
 		echo "Record update for $fullname <br>";
-		echo "<img src='$target_file' width='100'>";
+		echo "<img src='$target_file' width='500'>";
 	}else{
 		//header ("Location: dash-admin.php?msg=Failed to update");
 		echo "Cannot save record";
